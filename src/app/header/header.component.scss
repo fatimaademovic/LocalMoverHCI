@@ -1,0 +1,44 @@
+:host {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  .inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    border-bottom: 1px solid rgba(#001d35, 0.1);
+
+    &__group {
+      flex: 1;
+      display: inherit;
+      align-items: inherit;
+      gap: 24px;
+
+      &--md {
+        justify-content: center;
+      }
+
+      &--end {
+        justify-content: end;
+
+        .btn {
+          height: 32px;
+          font-size: 12px;
+          line-height: 1;
+          padding: 8px 12px;
+          margin-left: 18px;
+        }
+      }
+
+      &__divider {
+        display: block;
+        height: 42px;
+        width: 1px;
+        background-color: rgba(#001d35, 0.1);
+      }
+    }
+  }
+}

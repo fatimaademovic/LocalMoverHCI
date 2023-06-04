@@ -1,0 +1,22 @@
+<div class="flex items-center space-x-4 ml-auto cursor-pointer">
+  <img class="w-10 h-10 rounded-full" src="assets/avatar.png" alt="" />
+  <div class="font-medium">
+    <div>{{ user.firstName + " " + user.lastName }}</div>
+    <div class="text-sm text-gray-500 dark:text-gray-400">Student</div>
+  </div>
+  <img src="assets/icons/chevron-down.svg" />
+</div>
+
+<ul
+  #settingsDropdown
+  *ngIf="open"
+  class="dropdown absolute z-[1000] float-left m-0 min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base"
+>
+  <li
+    *ngFor="let option of options"
+    (click)="setOption(option)"
+    class="flex w-full whitespace-nowrap bg-transparent px-4 py-2 text-sm font-medium text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline"
+  >
+    <mat-icon>{{ option.icon }}</mat-icon> {{ option.name }}
+  </li>
+</ul>

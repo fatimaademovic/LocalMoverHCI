@@ -1,0 +1,82 @@
+<div class="title-bar flex items-center space-x-4 ml-auto justify-between">
+  <img src="assets/logo.svg" alt="logo" />
+  <mat-icon class="cursor-pointer" mat-dialog-close>close</mat-icon>
+</div>
+
+<br />
+<label class="block title mb-2">Register</label>
+<p class="description block mb-3">
+  Please enter your credentials and press the button below. If you already have
+  an account, please log in
+  <span class="redirect-here cursor-pointer" (click)="openLogin()">here</span>.
+</p>
+
+<form [formGroup]="form">
+  <div class="flex items-center space-x-4 ml-auto justify-between mb-1">
+    <div>
+      <label class="input-label">First name</label>
+
+      <mat-form-field appearance="outline">
+        <input formControlName="firstName" matInput />
+        <mat-error> This field is required </mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <label class="input-label">Last name</label>
+
+      <mat-form-field appearance="outline">
+        <input formControlName="lastName" matInput />
+        <mat-error> This field is required </mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="flex flex-col">
+    <label class="input-label">Email address</label>
+
+    <mat-form-field appearance="outline">
+      <input formControlName="email" type="email" matInput />
+      <mat-error> This field is required </mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="flex flex-col">
+    <label class="input-label">Password</label>
+
+    <mat-form-field appearance="outline">
+      <input formControlName="password" type="password" matInput />
+      <mat-error> This field is required </mat-error>
+    </mat-form-field>
+  </div>
+
+  <button
+    type="button"
+    class="btn bg-primary hover:bg-primary-700 text-white rounded submit-button w-full"
+    (click)="onSubmit()"
+  >
+    Register
+  </button>
+
+  <h2 class="my-6"><span>Or register with</span></h2>
+
+  <div class="flex items-center space-x-4 ml-auto justify-between">
+    <button
+      type="button"
+      class="btn bg-primary hover:bg-primary-700 text-white rounded social-login facebook"
+    >
+      Facebook
+    </button>
+    <button
+      type="button"
+      class="btn bg-primary hover:bg-primary-700 text-white rounded social-login twitter"
+    >
+      Twitter
+    </button>
+    <button
+      type="button"
+      class="btn bg-primary hover:bg-primary-700 text-white rounded social-login google"
+    >
+      Google
+    </button>
+  </div>
+</form>

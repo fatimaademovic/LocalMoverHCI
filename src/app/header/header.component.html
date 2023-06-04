@@ -1,0 +1,33 @@
+<app-container>
+  <div class="inner">
+    <div class="inner__group">
+      <img src="assets/logo.svg" alt="logo" />
+      <div class="inner__group__divider"></div>
+      <app-language-dropdown></app-language-dropdown>
+    </div>
+
+    <div *ngIf="loggedUser" class="inner__group inner__group--md">
+      <app-tokens [user]="loggedUser"></app-tokens>
+    </div>
+
+    <div class="inner__group inner__group--end">
+      <app-user *ngIf="loggedUser" [user]="loggedUser"></app-user>
+      <div *ngIf="!loggedUser">
+        <button
+          type="button"
+          class="btn bg-transparent hover:bg-primary-700 text-black rounded"
+          (click)="openRegisterDialog()"
+        >
+          Register
+        </button>
+        <button
+          type="button"
+          class="btn bg-primary hover:bg-primary-700 text-white rounded"
+          (click)="openLoginDialog()"
+        >
+          Login
+        </button>
+      </div>
+    </div>
+  </div>
+</app-container>

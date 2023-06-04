@@ -1,0 +1,81 @@
+<div class="drives bottom-border">
+  <div class="font-semibold mb-2">My Drives</div>
+  <div class="d-flex align-items-center">
+    <div class="drives-box d-flex">
+      <div *ngFor="let drive of routes" class="drive-parent me-2">
+        <div class="drive d-flex justify-content-between align-items-center">
+          <div class="d-flex">
+            <img class="me-2" [src]="drive.icon" alt="transport_icon" />
+            <div>
+              <div class="f-14 font-semibold">{{drive.type}}</div>
+              <div class="f-12">{{drive.route}}</div>
+            </div>
+          </div>
+          <div class="f-12">
+            {{drive.time}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<h3 class="font-semibold">Plan a trip</h3>
+<p class="description text-neutral-500 mt-2">
+  Select which transport is the most suitable for you, enter your location and
+  you’re ready to go!
+</p>
+<div class="cards">
+  <div
+    class="cards__card rounded-lg"
+    *ngFor="let card of cards"
+    [ngStyle]="{ 'border-color': card.active ? card.color : '#D9DDE1' }"
+    (click)="changeFilter(card)"
+  >
+    <div class="cards__card__icon mb-3" [style.background-color]="card.iconBg">
+      <img [src]="card.icon" alt="transport_icon" />
+    </div>
+    <span>
+      {{ card.type }}
+    </span>
+  </div>
+</div>
+<div class="bottom-border d-flex align-items-center justify-content-between py-6 mb-6">
+  <div class="d-flex align-items-center">
+    <div class="me-2">From</div>
+    <div class="me-2 route-box">Dobrinja (SA)</div>
+    <div class="me-2">To</div>
+    <div class="me-2 route-box">Marijin Dvor (SA)</div>
+  </div>
+  <button type="button" class="btn btn-info btn-fit text-white rounded" (click)="listRoutes()">Find me route</button>
+</div>
+<div *ngIf="!routesListed" class="find-text d-flex flex-column align-items-center">
+  <div class="fit-content font-semibold">Find your route</div>
+  <div class="">Enter your information and find yourself a route.</div>
+</div>
+<div *ngIf="routesListed">
+  <h3 class="font-semibold mb-6">Found {{routes.length}} routes</h3>
+  <div class="routes-table pb-8">
+    <div class="px-4 d-flex justify-content-between">
+      <div class="column type-column">Type</div>
+      <div class="column trip-column">Trip time</div>
+      <div class="column route-column">Route</div>
+      <div class="column stop-column">Stops</div>
+      <div class="column time-column">Time to you</div>
+      <div class="column button-column"></div>
+    </div>
+    <div *ngFor="let route of routes" class="data-row fw-500 px-4 d-flex justify-content-between mb-2">
+      <div class="column type-column d-flex">
+        <img class="me-2" [src]="route.icon" alt="transport_icon" />
+        <div>{{route.name + ": " + route.type}}</div>
+      </div>
+      <div class="column trip-column">30 minutes</div>
+      <div class="column route-column fw-400">{{route.route}}</div>
+      <div class="column stop-column">10</div>
+      <div class="column time-column">3 minutes</div>
+      <div class="column button-column fw-400 d-flex justify-content-between">
+        <button type="button" class="btn bg-success btn-fit text-white rounded submit-button w-full" (click)="openBuyDialog()">Buy a ticket</button>
+        <button type="button" class="btn bg-white btn-fit rounded submit-button w-full" [routerLink]="['/map']">Check route</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+:host {
+    .map {
+        width: calc(100% - 374px);
+    }
+
+    .routes-list {
+        width: 350px;
+        margin-left: 24px;
+    }
+
+    .btn {
+        height: 32px;
+        font-size: 12px;
+        line-height: 1;
+        padding: 8px 12px;
+    }
+
+    .drive-parent {
+        width: 100%;
+        background-color: rgba(0, 29, 53, 0.05);
+        border: 1px solid rgba(0, 29, 53, 0.05);
+        border-radius: 8px;
+  
+        .drive {
+          padding: 16px 21px;
+        }
+  
+        &:hover {
+            background: #F8F9FF;
+            border: 1px solid #0096F2;
+        }
+      }
+}

@@ -1,0 +1,128 @@
+<div class="title-bar flex items-center space-x-4 ml-auto justify-between mb-3">
+  <h2 class="title">Select a method</h2>
+  <mat-icon class="cursor-pointer" mat-dialog-close>close</mat-icon>
+</div>
+
+<p class="description block mb-6">
+  Select a method that suites you the best. You can even save it and later on
+  don’t bother going through this process.
+</p>
+
+<div class="flex justify-between items-center w-full mb-6">
+  <div
+    class="payment-card flex justify-center items-center"
+    [class.selected]="data.paymentOption === PaymentOption.PAYPAL"
+  >
+    <img src="assets/paypal.svg" alt="paypal" />
+  </div>
+  <div
+    class="payment-card flex justify-center items-center"
+    [class.selected]="data.paymentOption === PaymentOption.VISA"
+  >
+    <img src="assets/visa.svg" alt="visa" />
+  </div>
+  <div
+    class="payment-card flex justify-center items-center"
+    [class.selected]="data.paymentOption === PaymentOption.MASTERCARD"
+  >
+    <img src="assets/mastercard.svg" alt="mastercard" />
+  </div>
+</div>
+
+<div *ngIf="data.paymentOption === PaymentOption.PAYPAL; else standardPayment">
+  <form [formGroup]="paypalForm">
+    <div class="flex flex-col">
+      <label class="input-label">Email address</label>
+
+      <mat-form-field appearance="outline">
+        <input formControlName="email" type="email" matInput />
+
+        <mat-error *ngIf="email.hasError('required')">
+          This field is required
+        </mat-error>
+        <mat-error *ngIf="email.hasError('email')">
+          Invalid email format
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </form>
+</div>
+
+<ng-template #standardPayment>
+  <form [formGroup]="standardForm">
+    <div class="flex flex-col">
+      <label class="input-label">Card number</label>
+
+      <div>
+        <mat-form-field appearance="outline" class="w-full">
+          <input formControlName="cardNumber" type="cardNumber" matInput />
+
+          <mat-error *ngIf="cardNumber.hasError('required')">
+            This field is required
+          </mat-error>
+          <mat-error *ngIf="cardNumber.hasError('cardNumber')">
+            Invalid card number
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="flex items-center space-x-4 ml-auto justify-between mb-1">
+      <div class="flex flex-col" class="row-field">
+        <label class="input-label">Expiration date</label>
+        <mat-form-field appearance="outline" class="w-full">
+          <input
+            matInput
+            formControlName="expirationDate"
+            [matDatepicker]="picker"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="expirationDate.hasError('required')"
+            >This field is required</mat-error
+          >
+          <mat-error *ngIf="!expirationDate.hasError('required')"
+            >Invalid date</mat-error
+          >
+        </mat-form-field>
+      </div>
+
+      <div class="flex flex-col" class="row-field">
+        <label class="input-label">CVV</label>
+
+        <mat-form-field appearance="outline" class="w-full">
+          <input formControlName="cvv" type="number" matInput />
+          <mat-error *ngIf="cvv.hasError('required')">
+            This field is required
+          </mat-error>
+          <mat-error *ngIf="!cvv.hasError('required')">
+            Invalid CVV format
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+</ng-template>
+
+<mat-checkbox class="remember">Remember my credentials</mat-checkbox>
+
+<div class="flex align-center justify-between">
+  <button
+    type="button"
+    class="flex justify-between btn bg-white text-black rounded back-button items-center px-3"
+    (click)="onBack()"
+  >
+    <mat-icon>arrow_back</mat-icon>
+    <span>Back</span>
+  </button>
+  <button
+    type="button"
+    class="btn bg-primary hover:bg-primary-700 text-white rounded submit-button"
+    (click)="onSubmit()"
+  >
+    Proceed
+  </button>
+</div>

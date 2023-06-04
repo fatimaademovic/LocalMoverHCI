@@ -1,0 +1,151 @@
+:host {
+  color: #001D35;
+  font-size: 14px;
+
+  .drives {
+    width: 100%;
+    padding-bottom: 32px;
+    margin-bottom: 32px;
+
+    .drives-box {
+      width: 100%;
+      overflow-x: scroll;
+      -ms-overflow-style: none;  /* Internet Explorer 10+ */
+      scrollbar-width: none;  /* Firefox */
+
+      .drive-parent {
+        background-color: white;
+        border: 1px solid rgba(0, 29, 53, 0.15);
+        border-radius: 8px;
+  
+        .drive {
+          width: 300px;
+          padding: 16px 21px;
+        }
+  
+        &:hover {
+          background-color: rgba(0, 150, 242, 0.05);
+          border: 1px solid #0096F2;
+        }
+      }
+    }
+
+    .drives-box::-webkit-scrollbar { 
+        display: none;  /* Safari and Chrome */
+    }
+
+    .scroll-button {
+      width: 42px;
+      height: 42px;
+      margin-left: 13px;
+      background-color: #F9F9FC;
+      border: 1px solid #E2E2E5;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+  }
+
+  .description {
+    font-size: 12px;
+  }
+
+  .cards {
+    margin-top: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    &__card {
+      cursor: pointer;
+      background-color: #e9f1ff;
+      border: 1px solid rgba(#001d35, 15%);
+      width: 128px;
+      padding: 16px 0;
+      aspect-ratio: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease-in-out;
+
+      &__icon {
+        position: relative;
+        width: 64px;
+        height: 64px;
+        z-index: 0;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+
+  .bottom-border {
+    border-bottom: 1px solid rgba(#001d35, 0.1);
+  }
+
+  .btn-info {
+    background-color: #0096F2;
+
+    &:hover {
+      background-color: #29a5f3;
+    }
+  }
+
+  .route-box {
+    min-width: 200px;
+    padding: 11px 11px 11px 40px;
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 29, 53, 0.15);
+    border-radius: 8px;
+  }
+
+  .find-text {
+    margin-top: 100px;
+  }
+
+  .routes-table {
+
+    .data-row {
+      background: rgba(0, 29, 53, 0.05);
+      border: 1px solid rgba(0, 29, 53, 0.05);
+      border-radius: 8px;
+    }
+
+    .column {
+      display: flex;
+      align-items: center;
+      padding: 20px 0;
+      overflow: hidden;
+    }
+    
+    .type-column {
+      width: 290px;
+    }
+
+    .trip-column {
+      width: 160px;
+    }
+
+    .route-column {
+      width: 235px;
+    }
+
+    .stop-column {
+      width: 100px;
+    }
+
+    .time-column {
+      width: 180px;
+    }
+
+    .button-column {
+      width: 230px;
+      min-width: 230px;
+    }
+  }
+}

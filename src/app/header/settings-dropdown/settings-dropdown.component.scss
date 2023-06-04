@@ -1,0 +1,32 @@
+:host {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+
+  * {
+    user-select: none;
+  }
+
+  .dropdown {
+    top: calc(100% + 8px);
+    width: 250px;
+    padding: 8px;
+    border: 1px solid rgba(#001d35, 15%);
+
+    li {
+      gap: 8px;
+      border-radius: 8px;
+    }
+  }
+
+  .language {
+    margin-left: 8px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .chevron {
+    margin-left: 8px;
+  }
+}

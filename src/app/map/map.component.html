@@ -1,0 +1,26 @@
+<div class="my-6">
+    <div class="clickable" [routerLink]="['/']">< Go back</div>
+</div>
+<div class="d-flex pb-8">
+    <div class="map">
+        <img src="assets/mapImage.png" alt="" />
+    </div>
+    <div class="routes-list">
+        <h3 class="fw-500 mb-6">All routes</h3>
+        <div *ngFor="let drive of routes" class="drive-parent mb-2">
+            <div class="drive d-flex justify-content-between align-items-center">
+              <div class="d-flex">
+                <img class="me-2" [src]="drive.icon" alt="transport_icon" />
+                <div>
+                  <div class="f-14 font-semibold">{{drive.type}}</div>
+                  <div class="f-12">{{drive.route}}</div>
+                </div>
+              </div>
+              <div class="f-12">
+                {{drive.time}}
+              </div>
+            </div>
+          </div>
+        <button class="btn bg-success hover:bg-success-700 text-white rounded w-100 mt-6" (click)="openBuyDialog()">Buy a ticket</button>
+    </div>
+</div>

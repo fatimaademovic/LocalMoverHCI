@@ -1,0 +1,62 @@
+:host {
+  padding: 24px;
+  display: block;
+  height: 100%;
+}
+
+.title {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: #001d35;
+}
+
+.description {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  color: #001d3599;
+}
+
+.submit-button {
+  height: 42px;
+  width: 348px;
+  background: #0096f2;
+  border-radius: 8px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.back-button {
+  height: 42px;
+  width: 89px;
+  border-radius: 8px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.payment-card {
+  width: 142px;
+  height: 52px;
+
+  background: #ffffff;
+  border: 1px solid #f0f0f4;
+  border-radius: 6px;
+
+  &.selected {
+    background: #f8f9ff;
+    border: 1px solid #0096f2;
+  }
+}

@@ -1,0 +1,20 @@
+<mat-icon class="absolute top-4 right-4 cursor-pointer" mat-dialog-close
+  >close</mat-icon
+>
+
+<div class="flex items-center justify-between flex-col w-full">
+  <img src="assets/failure.svg" alt="Failure" class="mb-4" />
+  <label class="title mb-2">Something went wrong</label>
+  <p class="description block mb-6">
+    Processing your transaction we have occurred an issue and your transaction
+    was terminated. Please try again.
+  </p>
+</div>
+
+<button
+  type="button"
+  class="btn hover:bg-primary-700 text-white rounded submit-button w-full"
+  (click)="onSubmit()"
+>
+  Try again
+</button>

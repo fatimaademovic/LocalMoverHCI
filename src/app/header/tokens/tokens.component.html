@@ -1,0 +1,9 @@
+<img src="assets/icons/token.svg" alt="token" />
+<h3 class="amount">{{ user.balance?.toFixed(2) }}</h3>
+<button
+  type="button"
+  class="btn bg-success hover:bg-success-700 text-white rounded"
+  (click)="openTopUpDialog()"
+>
+  Top up
+</button>

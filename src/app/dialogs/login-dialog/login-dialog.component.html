@@ -1,0 +1,70 @@
+<div class="title-bar flex items-center space-x-4 ml-auto justify-between">
+  <img src="assets/logo.svg" alt="logo" />
+  <mat-icon class="cursor-pointer" mat-dialog-close>close</mat-icon>
+</div>
+
+<br />
+<label class="block title mb-2">Log In</label>
+<p class="description block mb-3">
+  Please enter your credentials and press the button below. If you don’t have an
+  account, please register
+  <span class="redirect-here cursor-pointer" (click)="openRegister()">here</span
+  >.
+</p>
+
+<form [formGroup]="form">
+  <div class="flex flex-col">
+    <label class="input-label">Email address</label>
+
+    <mat-form-field appearance="outline">
+      <input formControlName="email" type="email" matInput />
+
+      <mat-error *ngIf="email.hasError('required')">
+        This field is required
+      </mat-error>
+      <mat-error *ngIf="email.hasError('email')">
+        Invalid email format
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="flex flex-col">
+    <label class="input-label">Password</label>
+
+    <mat-form-field appearance="outline">
+      <input formControlName="password" type="password" matInput />
+      <mat-error> This field is required </mat-error>
+    </mat-form-field>
+  </div>
+</form>
+
+<button
+  type="button"
+  class="btn bg-primary hover:bg-primary-700 text-white rounded submit-button w-full"
+  (click)="onSubmit()"
+>
+  Login
+</button>
+
+<h2 class="my-6"><span>Or register with</span></h2>
+
+<div class="flex items-center space-x-4 ml-auto justify-between">
+  <button
+    type="button"
+    class="btn bg-primary hover:bg-primary-700 text-white rounded social-login facebook"
+  >
+    Facebook
+  </button>
+  <button
+    type="button"
+    class="btn bg-primary hover:bg-primary-700 text-white rounded social-login twitter"
+  >
+    Twitter
+  </button>
+  <button
+    type="button"
+    class="btn bg-primary hover:bg-primary-700 text-white rounded social-login google"
+  >
+    Google
+  </button>
+</div>

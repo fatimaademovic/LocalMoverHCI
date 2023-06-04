@@ -1,0 +1,21 @@
+<mat-icon class="absolute top-4 right-4 cursor-pointer" mat-dialog-close
+  >close</mat-icon
+>
+
+<div class="flex items-center justify-between flex-col w-full">
+  <img src="assets/success.svg" alt="Success" class="mb-4" />
+  <label class="title mb-2">Transaction successful</label>
+  <p class="description block mb-6">
+    You’ve successfully added
+    <span class="text-black">{{ data.amount.toFixed(2) }}$</span> into your
+    account. Now you can go and plan your trips.
+  </p>
+</div>
+
+<button
+  type="button"
+  class="btn bg-success hover:bg-primary-700 text-white rounded submit-button w-full"
+  mat-dialog-close
+>
+  Proceed
+</button>
